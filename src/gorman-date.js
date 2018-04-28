@@ -1,5 +1,6 @@
 import { ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
+import { toGorString } from './util/gorman-date'
 
 export class GormanDate extends Date {
 	static of(...a) {
@@ -59,7 +60,7 @@ export class GormanDate extends Date {
 	}
 
 	getUTCGorHours() {
-		return
+		return super.getUTCHours()
 	}
 
 	getUTCGorMilliseconds() {
@@ -135,6 +136,6 @@ export class GormanDate extends Date {
 	}
 
 	toGorString() {
-		return ''
+		return toGorString(this)
 	}
 }
