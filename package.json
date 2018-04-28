@@ -1,7 +1,7 @@
 {
 	"name": "gormanian",
 	"version": "0.0.0",
-	"description": "Gormanian calendar date resolution",
+	"description": "gormanic date conversion",
 	"keywords": [
 		"gorman",
 		"gormanian",
