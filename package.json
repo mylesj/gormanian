@@ -1,0 +1,42 @@
+{
+	"name": "gormanian",
+	"version": "0.0.0",
+	"description": "Gormanian calendar date resolution",
+	"keywords": [
+		"gorman",
+		"gormanian",
+		"gormanuary",
+		"calendar",
+		"date",
+		"esm"
+	],
+	"repository": "github:mylesj/gormanian",
+	"bugs": "https://github.com/mylesj/gormanian/issues",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
+	"files": ["dist/"],
+	"license": "MIT",
+	"scripts": {
+		"prebuild": "rimraf dist",
+		"build": "rollup -c",
+		"test": "jest",
+		"release": "standard-version --commit-all"
+	},
+	"git": {
+		"scripts": {
+			"pre-commit": "node_modules/.bin/lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/*.{js,json,md}": ["prettier --write", "git add"]
+	},
+	"devDependencies": {
+		"git-scripts": "~0.2.1",
+		"jest": "~22.4.3",
+		"lint-staged": "~7.0.4",
+		"prettier": "~1.12.0",
+		"rimraf": "~2.6.2",
+		"rollup": "~0.57.1",
+		"standard-version": "~4.3.0"
+	}
+}
