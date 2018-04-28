@@ -1,18 +1,25 @@
+import { ordinalDate, utcOrdinalDate } from './util/date'
+import { toDate, toDay, toMonth } from './util/ordinal-date'
+
 export class GormanDate extends Date {
+	static of(...a) {
+		return new GormanDate(...a)
+	}
+
 	constructor(...a) {
 		super(...a)
 	}
 
 	getGorDate() {
-		return
+		return toDate(ordinalDate(this))
 	}
 
 	getGorDay() {
-		return
+		return toDay(ordinalDate(this))
 	}
 
 	getGorFullYear() {
-		return
+		return super.getFullYear()
 	}
 
 	getGorHours() {
@@ -20,27 +27,55 @@ export class GormanDate extends Date {
 	}
 
 	getGorMilliseconds() {
-		return
+		return super.getMilliseconds()
 	}
 
 	getGorMinutes() {
-		return
+		return super.getMinutes()
 	}
 
 	getGorMonth() {
-		return
+		return toMonth(ordinalDate(this))
 	}
 
 	getGorSeconds() {
-		return
+		return super.getSeconds()
 	}
 
 	getGorTime() {
+		return super.getTime()
+	}
+
+	getUTCGorDate() {
+		return toDate(utcOrdinalDate(this))
+	}
+
+	getUTCGorDay() {
+		return toDay(utcOrdinalDate(this))
+	}
+
+	getUTCGorFullYear() {
+		return super.getUTCFullYear()
+	}
+
+	getUTCGorHours() {
 		return
 	}
 
-	getGorTimezoneOffset() {
-		return
+	getUTCGorMilliseconds() {
+		return super.getUTCMilliseconds()
+	}
+
+	getUTCGorMinutes() {
+		return super.getUTCMinutes()
+	}
+
+	getUTCGorMonth() {
+		return toMonth(utcOrdinalDate(this))
+	}
+
+	getUTCGorSeconds() {
+		return super.getUTCSeconds()
 	}
 
 	setGorDate() {
@@ -75,7 +110,31 @@ export class GormanDate extends Date {
 		return
 	}
 
-	toGorString() {
+	setUTCGorDate() {
 		return
+	}
+
+	setUTCGorHours() {
+		return
+	}
+
+	setUTCGorMilliseconds() {
+		return
+	}
+
+	setUTCGorMinutes() {
+		return
+	}
+
+	setUTCGorMonth() {
+		return
+	}
+
+	setUTCGorSeconds() {
+		return
+	}
+
+	toGorString() {
+		return ''
 	}
 }
