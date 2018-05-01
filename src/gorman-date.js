@@ -1,14 +1,24 @@
+import { isString } from './util/types'
 import { ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
-import { toGorString } from './util/gorman-date'
+import { toGorString, parse } from './util/gorman-date'
 
 export class GormanDate extends Date {
 	static of(...a) {
 		return new GormanDate(...a)
 	}
 
+	static parse(str) {
+		return new GormanDate(parse(str))
+	}
+
 	constructor(...a) {
-		super(...a)
+		const [first] = a
+		let parsed
+		if (a.length === 1 && isString(first)) {
+			parsed = parse(first)
+		}
+		super(...(parsed !== undefined ? [parsed] : a))
 	}
 
 	getGorDate() {
