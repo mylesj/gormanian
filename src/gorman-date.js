@@ -1,7 +1,7 @@
 import { isString } from './util/types'
 import { ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
-import { toGorString, parse } from './util/gorman-date'
+import { toGorString, parse } from './util/serialization'
 
 export class GormanDate extends Date {
 	static of(...a) {
@@ -9,7 +9,7 @@ export class GormanDate extends Date {
 	}
 
 	static parse(str) {
-		return new GormanDate(parse(str))
+		return new GormanDate(str)
 	}
 
 	constructor(...a) {
