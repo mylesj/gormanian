@@ -12,3 +12,9 @@ export const ordinalDate = date =>
 
 export const utcOrdinalDate = date =>
 	toOrdinalDate(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
+
+export const dstOffset = date => {
+	var jan = new Date(date.getFullYear(), 0, 1)
+	var jul = new Date(date.getFullYear(), 6, 1)
+	return jan.getTimezoneOffset() - jul.getTimezoneOffset()
+}

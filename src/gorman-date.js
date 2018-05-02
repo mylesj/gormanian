@@ -1,5 +1,5 @@
 import { isString } from './util/types'
-import { clone, ordinalDate, utcOrdinalDate } from './util/date'
+import { clone, dstOffset, ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
 import { toGormanString, parse } from './util/serialization'
 
@@ -34,7 +34,13 @@ export class GormanDate extends Date {
 	}
 
 	getHours() {
-		return
+		const dst = Math.floor(dstOffset(this.toDate()) / 60)
+		return super.getHours() - dst
+	}
+
+	getMinutes() {
+		const dst = dstOffset(this.toDate()) % 60
+		return super.getMinutes() - dst
 	}
 
 	getUTCMonth() {
