@@ -5,6 +5,8 @@ const toOrdinalDate = (year, month, date) => {
 	return 1 + Math.round(diff / MS_DAY)
 }
 
+export const clone = date => new Date(Date.prototype.getTime.call(date))
+
 export const ordinalDate = date =>
 	toOrdinalDate(date.getFullYear(), date.getMonth(), date.getDate())
 

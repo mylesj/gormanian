@@ -20,8 +20,6 @@ been around for a while but client-side tooling is still not that accessible.
 
 *   create an abstraction on which reusable components can be built
 *   extend the native JavaScript [Date][ext:mdn-date] object
-    -- exposing a like-for-like API
-    -- maintaining interoperability
 
 ## usage
 
@@ -29,10 +27,9 @@ been around for a while but client-side tooling is still not that accessible.
 const { GormanDate } = require('gormanian')
 ```
 
-Generally for each `get` and `set` on the [Date prototype][ext:mdn-date] there
-shall exist a `getGor` and `setGor` equivalent. In cases such as "time" the
-functions may delegate to the native behaviour, but exist for consistency
-and potential futureproofing in the event of updates to the specification.
+The relevant [Date.prototype][ext:mdn-date] API has been overridden as-is to
+correct for a 13 month calendar etc. When intermission is observed some return
+values will be `-1`.
 
 [//]: # 'links'
 [ext:original-post]: http://gormano.blogspot.co.uk/2008/01/problem-solving.html

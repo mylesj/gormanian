@@ -1,7 +1,7 @@
 import { isString } from './util/types'
-import { ordinalDate, utcOrdinalDate } from './util/date'
+import { clone, ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
-import { toGorString, parse } from './util/serialization'
+import { toGormanString, parse } from './util/serialization'
 
 export class GormanDate extends Date {
 	static of(...a) {
@@ -21,131 +21,63 @@ export class GormanDate extends Date {
 		super(...(parsed !== undefined ? [parsed] : a))
 	}
 
-	getGorDate() {
-		return toDate(ordinalDate(this))
+	getMonth() {
+		return toMonth(ordinalDate(this.toDate()))
 	}
 
-	getGorDay() {
-		return toDay(ordinalDate(this))
+	getDate() {
+		return toDate(ordinalDate(this.toDate()))
 	}
 
-	getGorFullYear() {
-		return super.getFullYear()
+	getDay() {
+		return toDay(ordinalDate(this.toDate()))
 	}
 
-	getGorHours() {
+	getHours() {
 		return
 	}
 
-	getGorMilliseconds() {
-		return super.getMilliseconds()
+	getUTCMonth() {
+		return toMonth(utcOrdinalDate(this.toDate()))
 	}
 
-	getGorMinutes() {
-		return super.getMinutes()
+	getUTCDate() {
+		return toDate(utcOrdinalDate(this.toDate()))
 	}
 
-	getGorMonth() {
-		return toMonth(ordinalDate(this))
+	getUTCDay() {
+		return toDay(utcOrdinalDate(this.toDate()))
 	}
 
-	getGorSeconds() {
-		return super.getSeconds()
-	}
-
-	getGorTime() {
-		return super.getTime()
-	}
-
-	getUTCGorDate() {
-		return toDate(utcOrdinalDate(this))
-	}
-
-	getUTCGorDay() {
-		return toDay(utcOrdinalDate(this))
-	}
-
-	getUTCGorFullYear() {
-		return super.getUTCFullYear()
-	}
-
-	getUTCGorHours() {
-		return super.getUTCHours()
-	}
-
-	getUTCGorMilliseconds() {
-		return super.getUTCMilliseconds()
-	}
-
-	getUTCGorMinutes() {
-		return super.getUTCMinutes()
-	}
-
-	getUTCGorMonth() {
-		return toMonth(utcOrdinalDate(this))
-	}
-
-	getUTCGorSeconds() {
-		return super.getUTCSeconds()
-	}
-
-	setGorDate() {
+	setMonth() {
 		return
 	}
 
-	setGorFullYear() {
+	setDate() {
 		return
 	}
 
-	setGorHours() {
+	setHours() {
 		return
 	}
 
-	setGorMilliseconds() {
+	setUTCMonth() {
 		return
 	}
 
-	setGorMinutes() {
+	setUTCDate() {
 		return
 	}
 
-	setGorMonth() {
+	setUTCHours() {
 		return
 	}
 
-	setGorSeconds() {
-		return
+	toString() {
+		return toGormanString(this.toDate())
 	}
 
-	setGorTime() {
-		return
-	}
-
-	setUTCGorDate() {
-		return
-	}
-
-	setUTCGorHours() {
-		return
-	}
-
-	setUTCGorMilliseconds() {
-		return
-	}
-
-	setUTCGorMinutes() {
-		return
-	}
-
-	setUTCGorMonth() {
-		return
-	}
-
-	setUTCGorSeconds() {
-		return
-	}
-
-	toGorString() {
-		return toGorString(this)
+	toDate() {
+		return clone(this)
 	}
 }
