@@ -1,5 +1,5 @@
 import { isString } from './util/types'
-import { clone, dstOffset, ordinalDate, utcOrdinalDate } from './util/date'
+import { dstOffset, ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
 import { toGormanString, parse } from './util/serialization'
 
@@ -22,37 +22,37 @@ export class GormanDate extends Date {
 	}
 
 	getMonth() {
-		return toMonth(ordinalDate(this.toDate()))
+		return toMonth(ordinalDate(this))
 	}
 
 	getDate() {
-		return toDate(ordinalDate(this.toDate()))
+		return toDate(ordinalDate(this))
 	}
 
 	getDay() {
-		return toDay(ordinalDate(this.toDate()))
+		return toDay(ordinalDate(this))
 	}
 
 	getHours() {
-		const dst = Math.floor(dstOffset(this.toDate()) / 60)
+		const dst = Math.floor(dstOffset(this) / 60)
 		return super.getHours() - dst
 	}
 
 	getMinutes() {
-		const dst = dstOffset(this.toDate()) % 60
+		const dst = dstOffset(this) % 60
 		return super.getMinutes() - dst
 	}
 
 	getUTCMonth() {
-		return toMonth(utcOrdinalDate(this.toDate()))
+		return toMonth(utcOrdinalDate(this))
 	}
 
 	getUTCDate() {
-		return toDate(utcOrdinalDate(this.toDate()))
+		return toDate(utcOrdinalDate(this))
 	}
 
 	getUTCDay() {
-		return toDay(utcOrdinalDate(this.toDate()))
+		return toDay(utcOrdinalDate(this))
 	}
 
 	setMonth() {
@@ -80,10 +80,10 @@ export class GormanDate extends Date {
 	}
 
 	toString() {
-		return toGormanString(this.toDate())
+		return toGormanString(this)
 	}
 
 	toDate() {
-		return clone(this)
+		return new Date(this.getTime())
 	}
 }
