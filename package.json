@@ -20,8 +20,9 @@
 	"scripts": {
 		"prebuild": "rimraf dist",
 		"build": "rollup -c",
-		"test": "jest",
-		"release": "standard-version --commit-all"
+		"release": "standard-version --commit-all",
+		"test": "$npm_execpath run test:main",
+		"test:main": "TZ=Europe/London jest test/main"
 	},
 	"git": {
 		"scripts": {
