@@ -17,6 +17,7 @@ export class GormanDate extends Date {
 		let parsed
 		if (a.length === 1 && isString(first)) {
 			parsed = fromGormanString(first)
+			if (Number.isNaN(parsed)) parsed = new Date(first).getTime()
 		}
 		super(...(parsed !== undefined ? [parsed] : a))
 	}
