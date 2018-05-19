@@ -1,3 +1,8 @@
+[![npm version][img:npm-version]][repo:package]
+[![build status][img:repo-status]][repo:status]
+[![conventional commits][img:commits]][ext:commits]
+[![styled with prettier][img:prettier]][ext:prettier]
+
 # Gormanian Calendar Conversion
 
 A utility for converting to and from Gormanic dates.
@@ -32,6 +37,10 @@ correct for a 13 month calendar etc. When intermission is observed some return
 values will be `-1`.
 
 [//]: # 'links'
+[repo:status]: https://travis-ci.org/mylesj/gormanian
+[repo:package]: https://www.npmjs.com/package/gormanian
+[ext:commits]: https://conventionalcommits.org
+[ext:prettier]: https://github.com/prettier/prettier
 [ext:original-post]: http://gormano.blogspot.co.uk/2008/01/problem-solving.html
 [ext:uktv-play]: https://uktvplay.uktv.co.uk/shows/dave-gormans-modern-life-is-goodish/watch-online/?video=4557208837001
 [ext:mdn-date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
