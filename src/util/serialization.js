@@ -28,5 +28,7 @@ export const fromGormanString = str => {
 	const match = str.match(RE_GORMAN_STR)
 	if (!match) return NaN
 	const [y, o, h, m, s, ms] = match.slice(1).map(Number)
-	return Date.UTC(y, 0, o, h, m, s) + ms
+	return o < 1 || o > 366 || h > 23 || m > 59 || s > 59
+		? NaN
+		: Date.UTC(y, 0, o, h, m, s) + ms
 }
