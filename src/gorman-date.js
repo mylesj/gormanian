@@ -1,7 +1,7 @@
 import { isString } from './util/types'
 import { dstOffset, ordinalDate, utcOrdinalDate } from './util/date'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
-import { toGormanString, parse } from './util/serialization'
+import { toGormanString, fromGormanString } from './util/serialization'
 
 export class GormanDate extends Date {
 	static of(...a) {
@@ -16,7 +16,7 @@ export class GormanDate extends Date {
 		const [first] = a
 		let parsed
 		if (a.length === 1 && isString(first)) {
-			parsed = parse(first)
+			parsed = fromGormanString(first)
 		}
 		super(...(parsed !== undefined ? [parsed] : a))
 	}

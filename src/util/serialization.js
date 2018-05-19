@@ -12,7 +12,7 @@ const RE_GORMAN_STR = /^((?:[+-]\d{2})?\d{4})-(\d{3})T(\d{2}):(\d{2}):(\d{2})\.(
 const pad = (n, str) => String(str).padStart(n, 0)
 
 export const toGormanString = date => {
-	if (Number.isNaN(date)) throw new RangeError('Invalid time value')
+	if (Number.isNaN(Number(date))) return String(new Date(NaN))
 	const year = getUTCFullYear(date)
 	const p = year > 9999 ? '+' : year < 0 ? '-' : ''
 	const y = pad(p ? 6 : 4, Math.abs(year))
@@ -24,15 +24,9 @@ export const toGormanString = date => {
 	return `${p}${y}-${o}T${h}:${m}:${s}.${ms}Z`
 }
 
-const isGormanString = str => RE_GORMAN_STR.test(str)
-
-const fromGormanString = str => {
+export const fromGormanString = str => {
 	const match = str.match(RE_GORMAN_STR)
 	if (!match) return NaN
 	const [y, o, h, m, s, ms] = match.slice(1).map(Number)
 	return Date.UTC(y, 0, o, h, m, s) + ms
-}
-
-export const parse = str => {
-	if (isGormanString(str)) return fromGormanString(str)
 }
