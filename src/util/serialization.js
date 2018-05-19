@@ -1,4 +1,4 @@
-import { utcOrdinalDate } from './date'
+import { utcOrdinalDate } from './date-time'
 import {
 	getUTCFullYear,
 	getUTCHours,

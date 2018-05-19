@@ -1,5 +1,5 @@
 import { isString } from './util/types'
-import { dstOffset, ordinalDate, utcOrdinalDate } from './util/date'
+import { dstOffset, ordinalDate, utcOrdinalDate } from './util/date-time'
 import { toDate, toDay, toMonth } from './util/ordinal-date'
 import { toGormanString, fromGormanString } from './util/serialization'
 
