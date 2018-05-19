@@ -4,7 +4,8 @@ import {
 	getFullYear,
 	getUTCMonth,
 	getUTCDate,
-	getUTCFullYear
+	getUTCFullYear,
+	getTimezoneOffset
 } from './date-safe'
 
 const MS_DAY = 1000 * 60 * 60 * 24
@@ -21,7 +22,7 @@ export const utcOrdinalDate = date =>
 	toOrdinalDate(getUTCFullYear(date), getUTCMonth(date), getUTCDate(date))
 
 export const dstOffset = date => {
-	var jan = new Date(getFullYear(date), 0, 1)
-	var jul = new Date(getFullYear(date), 6, 1)
-	return jan.getTimezoneOffset() - jul.getTimezoneOffset()
+	const jan = getTimezoneOffset(new Date(getFullYear(date), 0, 1))
+	const jul = getTimezoneOffset(new Date(getFullYear(date), 6, 1))
+	return getTimezoneOffset(date) < Math.max(jan, jul) ? jan - jul : 0
 }

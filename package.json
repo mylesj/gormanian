@@ -21,8 +21,9 @@
 		"prebuild": "rimraf dist",
 		"build": "rollup -c",
 		"release": "standard-version --commit-all",
-		"test": "$npm_execpath run test:main",
-		"test:main": "TZ=Europe/London jest test/main"
+		"test": "$npm_execpath run test:main && $npm_execpath run test:zone",
+		"test:main": "TZ=Europe/London jest test/main",
+		"test:zone": "TZ=America/Los_Angeles jest test/zone"
 	},
 	"git": {
 		"scripts": {

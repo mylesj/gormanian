@@ -33,3 +33,5 @@ export const getUTCMinutes = date => proto.getUTCMinutes.call(date)
 export const getUTCSeconds = date => proto.getUTCSeconds.call(date)
 
 export const getUTCMilliseconds = date => proto.getUTCMilliseconds.call(date)
+
+export const getTimezoneOffset = date => proto.getTimezoneOffset.call(date)
