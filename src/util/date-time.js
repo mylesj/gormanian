@@ -24,5 +24,7 @@ export const utcOrdinalDate = date =>
 export const dstOffset = date => {
 	const jan = getTimezoneOffset(new Date(getFullYear(date), 0, 1))
 	const jul = getTimezoneOffset(new Date(getFullYear(date), 6, 1))
-	return getTimezoneOffset(date) < Math.max(jan, jul) ? jan - jul : 0
+	return getTimezoneOffset(date) < Math.max(jan, jul)
+		? Math.max(jul - jan, jan - jul)
+		: 0
 }

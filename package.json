@@ -22,8 +22,9 @@
 		"build": "rollup -c",
 		"release": "standard-version --commit-all",
 		"test": "run-s test:*",
-		"test:main": "TZ=Europe/London jest test/main",
-		"test:zone": "TZ=America/Los_Angeles jest test/zone"
+		"test:meridian": "TZ=Europe/London jest test/meridian",
+		"test:zone-behind": "TZ=America/Los_Angeles jest test/zone-behind",
+		"test:zone-ahead": "TZ=Australia/Sydney jest test/zone-ahead"
 	},
 	"git": {
 		"scripts": {
