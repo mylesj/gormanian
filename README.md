@@ -37,6 +37,10 @@ correct for a 13 month calendar etc. When intermission is observed some return
 values will be `-1`.
 
 [//]: # 'links'
+[img:repo-status]: https://travis-ci.org/mylesj/gormanian.svg?branch=master
+[img:npm-version]: https://badge.fury.io/js/gormanian.svg
+[img:commits]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[img:prettier]: https://img.shields.io/badge/styled_with-prettier-ff69b4.svg
 [repo:status]: https://travis-ci.org/mylesj/gormanian
 [repo:package]: https://www.npmjs.com/package/gormanian
 [ext:commits]: https://conventionalcommits.org
